@@ -1,0 +1,108 @@
+{% extends 'base/base.html' %}
+{% load static %}
+<title>{% block title %}Index{% endblock %}</title>
+
+{% block content %}
+
+<div class="row d-flex ajuste overflow-x:auto;">
+
+    <div id="vacinaWeb">VACINAWEB</div>
+
+    <div class="banner">
+        <p> {{ banner.banner }} </p>
+    </div>
+
+    <div class="paragrafo-pai">
+        <div id="texto">IMPORTÂNCIA DA VACINAÇÃO</div>
+
+        <div id="paragrafo">
+            <p>A importância da vacinação vai muito além da prevenção individual.<br />
+                Ao se vacinar, você está ajudando toda a comunidade a diminuir<br />
+                os casos de determinada doença.</p>
+        </div>
+    </div>
+
+    <div class="row d-flex">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="card text-white bg-secondary mb-3"
+                style="max-width: 11rem; height: 10rem; left: 0rem; top: 0rem;">
+                <div class="card-body">
+                    <h5 class="card-title">ATENÇÃO</h5>
+                    <p class="card-text">MANTENHA SUA VACINAÇÃO EM DIA.</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 60rem; height: 15rem; left: 0rem; top: 0rem;">
+                <ol type="1">
+                    <p id="linha">Alguns motivos pra manter o calendário vacinal em dia:</p>
+                    <li>Salvar vidas</li>
+                    <li>Proteger a família e os amigos</li>
+                    <li>Controlar os sintomas de algumas doenças crônicas</li>
+                    <li>Evitar a resistência a antibióticos</li>
+                    <li>Segurança e eficácia</li>
+                    <li>Poupar dinheiro</li>
+                </ol>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img src="{% static 'assets/img/calendario.jpg' %}" alt="Nature" style="width:100%">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img src="{% static 'assets/img/zegotinha.jpg' %}" alt="Nature" style="width:100%">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img src="{% static 'assets/img/vacina.jpg' %}" alt="Nature" style="width:100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="card" style="width: 15rem; height: 20rem; left: 10rem;">
+                <form class="px-4 py-3" method="post">
+                    <h2>Log In</h2>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </form>
+            </div>
+
+            <div class="card" style="width: 18rem; height: 12rem; left: 10rem;">
+                <div class="card-body">
+                    <h4 class="card-title">PRÉ-CADASTRO</h4>
+                    <p class="text-primary">O pré-cadastro agiliza o atendimento na Unidade Básica de Saúde</p>
+                    <a href="cadastro" class="btn btn-primary" role="button">Cadastrar</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem; height: 12rem; left: 10rem;">
+                <div class="card-body">
+                    <p class="text-primary">Você será notificado automaticamente via email, do vencimento da próxima
+                        vacina<br />
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center text-md-start" style="background-color: #808080;">
+            <div class="container p-2"></div>
+            <div class="text-center p-3" style="background-color: #808080;">
+                <p>Univesp 2021 - Projeto Integrador I - Polo Guararema</p>
+            </div>
+        </footer>
+
+    </div>
+
+</div>
+
+{% endblock %}

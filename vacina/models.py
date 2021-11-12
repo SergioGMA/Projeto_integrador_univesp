@@ -1,0 +1,60 @@
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.db import models
+from datetime import datetime
+
+
+class Vacina(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    vacina = models.CharField(verbose_name='Vacina',
+                              max_length=100, default="Vacina")
+    fabricante = models.CharField(
+        verbose_name='Fabricante', max_length=100, default="Fabricante")
+    lote = models.CharField(verbose_name='lote',
+                            max_length=100, default="lote")
+    data_fabricacao = models.DateField(
+        verbose_name='Data Fabricação', auto_now=True)
+    dose = models.CharField(verbose_name='Dose',
+                            max_length=100, default="Dose")
+    prof = models.CharField(verbose_name='Profissional',
+                            max_length=100, default="Profissional")
+    reg_profissional = models.CharField(
+        verbose_name='Reg Profissional', max_length=100, default="Reg Profissional")
+    unidade = models.CharField(
+        verbose_name='Unidade', max_length=100, default="Unidade")
+    data_aplicacao = models.DateField(
+        verbose_name='Data Aplicação', auto_now=True)
+    data_validade = models.CharField(
+        verbose_name='Data Validade', max_length=100, default="Data Validade")
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    cpf = models.CharField(verbose_name='CPF', max_length=14, unique=True)
+    telefone = models.CharField(
+        verbose_name='Telefone', max_length=11, default="Telefone")
+    endereco = models.CharField(
+        verbose_name='Endereço', max_length=50, default="Endereço")
+    cidade = models.CharField(verbose_name='Cidade',
+                              max_length=30, default="Cidade")
+    comorbidade = models.CharField(
+        verbose_name='Possui Comorbidade?', max_length=10, default="Comorbidade")
+    alergia = models.CharField(
+        verbose_name='Apresenta algum tipo de alergia?', max_length=100, default="Alergia")
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
+
+
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
+
+class Banner(models.Model):
+    banner = models.TextField(verbose_name='Banner', max_length=1000,
+                              default="EM BREVE SERÁ DIVULGADO UMA NOVA CAMPANHA DE VACINAÇÃO")
