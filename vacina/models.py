@@ -13,8 +13,6 @@ class Vacina(models.Model):
         verbose_name='Fabricante', max_length=100, default="Fabricante")
     lote = models.CharField(verbose_name='lote',
                             max_length=100, default="lote")
-    data_fabricacao = models.DateField(
-        verbose_name='Data Fabricação', auto_now=True)
     dose = models.CharField(verbose_name='Dose',
                             max_length=100, default="Dose")
     prof = models.CharField(verbose_name='Profissional',
@@ -25,8 +23,10 @@ class Vacina(models.Model):
         verbose_name='Unidade', max_length=100, default="Unidade")
     data_aplicacao = models.DateField(
         verbose_name='Data Aplicação', auto_now=True)
-    data_validade = models.CharField(
-        verbose_name='Data Validade', max_length=100, default="Data Validade")
+    data_fabricacao = models.DateTimeField(
+        verbose_name='Data Fabricação', default=datetime.now)
+    data_validade = models.DateTimeField(
+        verbose_name='Data Validade', max_length=100, default=datetime.now)
 
 
 class Profile(models.Model):
