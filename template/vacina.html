@@ -4,17 +4,16 @@
 
 {% block content %}
 
-<div class="row d-flex">
+<div class="container-fluid;">
 
-    <div class="cx1">
+    <div class="cx1 container-fluid;">
         <p>
             {{ date }}<br>
-            <!--Bem-vindo {{ user.username }}<br>!-->
             Bem-vindo {{ user.first_name }} {{ user.last_name }}
         </p>
     </div>
 
-    <div class="tb3 ajuste overflow-x:auto;">
+    <div class="tb3 container-fluid;">
         <table class="tb1">
             <thead>
                 <tr>
@@ -49,9 +48,10 @@
             </tbody>
         </table>
         <br />
-        <div class="row d-flex justify-content-center">
-            <a class="btn btn-primary" href="{% url 'logout' %} ">Logout</a>
-        </div>
+    </div>
+    
+    <div class="row d-flex justify-content-center">
+        <a class="btn btn-primary" href="{% url 'logout' %} ">Logout</a>
     </div>
 
 </div>

@@ -34,9 +34,9 @@ class TemplateView(View):
         if len(p) > 0:
             user = User.objects.get(id=p.values('user_id')[0]['user_id'])
             user = authenticate(request, username=user, password=password)
-            login(request, user)
-
+            
             if user is not None:
+                login(request, user)
                 return HttpResponseRedirect('/vacina/')
 
             else:
