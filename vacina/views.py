@@ -40,11 +40,13 @@ class TemplateView(View):
                 return HttpResponseRedirect('/vacina/')
 
             else:
-                return HttpResponseRedirect('/access_denied/')
-                # return JsonResponse({'status': False, 'mgs': 'Access denied!'})
+                return render(request, 'access_denied.html')
+                #return HttpResponseRedirect('/access_denied/')
+                #return JsonResponse({'status': False, 'mgs': 'Access denied!'})
 
-        return HttpResponseRedirect('/cpf_not_found/')
-        # return JsonResponse({'status': False, 'mgs': 'CPF not found!'})
+        return render(request, 'cpf_not_found.html')
+        #return HttpResponseRedirect('cpf_not_found')
+        #return JsonResponse({'status': False, 'mgs': 'CPF not found!'})
 
 
 class CadastroView(View):
@@ -77,13 +79,16 @@ class CadastroView(View):
                     )
                     user.profile.cpf = p.get('cpf')
                     user.save()
-                    return HttpResponseRedirect('/thanks/')
+                    return render(request, 'thanks.html')
+                    #return HttpResponseRedirect('/thanks/')
 
                 else:
-                    return HttpResponseRedirect('/user_unique/')
+                    return render(request, 'user_unique.html')
+                    #return HttpResponseRedirect('/user_unique/')
 
-            return HttpResponseRedirect('/password_error/')
-            # return JsonResponse({'password': False})
+            return render(request, 'password_error.html')
+            #return HttpResponseRedirect('/password_error/')
+            #return JsonResponse({'password': False})
 
         context = {'form': form}
         return render(request, self.template_name, context=context)
