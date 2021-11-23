@@ -39,9 +39,9 @@ class Profile(models.Model):
     cidade = models.CharField(verbose_name='Cidade',
                               max_length=30, default="Cidade")
     comorbidade = models.CharField(
-        verbose_name='Possui Comorbidade?', max_length=10, default="Comorbidade")
+        verbose_name='Possui Comorbidade?', max_length=10, default="Não")
     alergia = models.CharField(
-        verbose_name='Apresenta algum tipo de alergia?', max_length=100, default="Alergia")
+        verbose_name='Apresenta algum tipo de alergia?', max_length=100, default="Não")
 
 
 @receiver(post_save, sender=User)
