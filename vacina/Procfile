@@ -1,1 +1,1 @@
-web: gunicorn projeto-integrador-gma.wsgi --log-file -
+web: gunicorn vacina_v12.wsgi --log-file -
