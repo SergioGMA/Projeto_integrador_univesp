@@ -1,1 +1,1 @@
-web: gunicorn projeto-integrador-gma.wsgi
+web: gunicorn projeto-integrador-gma.wsgi --log-file -
