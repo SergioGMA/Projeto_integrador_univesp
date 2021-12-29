@@ -2,3 +2,4 @@ venv/
 vacina/__pycache__/
 vacina/migrations/
 *.pyc
+db.sqlite3
