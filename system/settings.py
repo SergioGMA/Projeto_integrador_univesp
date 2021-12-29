@@ -30,7 +30,7 @@ import socket
 
 if socket.gethostname() == "server_name":
     DEBUG = False
-    ALLOWED_HOSTS = ["https://projeto-integrador-gma.herokuapp.com/",]
+    ALLOWED_HOSTS = ["https://pi-engcomp-gma.herokuapp.com/",]
     ...
 else:
     DEBUG = True
