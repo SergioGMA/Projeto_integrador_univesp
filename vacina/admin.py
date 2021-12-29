@@ -13,9 +13,15 @@ class VacinaAdmin(admin.ModelAdmin):
 #     list_display = ('id', 'user', 'nome', 'sobrenome', 'endereco', 'telefone', 'email', 'cidade', 'comorbidade', 'alergia', 'cpf', 'senha')
 
 
+@admin.register(Profile)
+class VacinaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'cpf',)
+    list_display_links = ('user',)
+
+
 @admin.register(Banner)
 class BannerAdmin(admin.ModelAdmin):
     list_display = ('banner',)
 
 
-admin.site.register(Profile)
+#admin.site.register(Profile)
