@@ -27,15 +27,9 @@ SECRET_KEY = 'h5m#558!xwktz)4swc0(@y04%ij8o!38$khguysta43-p1x-5k'
 #DEBUG = True
 #ALLOWED_HOSTS = ['*']
 
-import socket
+DEBUG = False
+ALLOWED_HOSTS = ["https://pi-engcomp-gma.herokuapp.com/", "127.0.0.1"]
 
-if socket.gethostname() == "server_name":
-    DEBUG = False
-    ALLOWED_HOSTS = ["https://pi-engcomp-gma.herokuapp.com/",]
-    ...
-else:
-    DEBUG = True
-    ALLOWED_HOSTS = ["localhost", "127.0.0.1",]
 
 # CORS_ORIGIN_ALLOW_ALL = True
 
