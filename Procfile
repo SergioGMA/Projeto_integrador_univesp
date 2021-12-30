@@ -1,2 +1,2 @@
 release: python3 manage.py migrate
-web: gunicorn django_heroku.wsgi --log-file -
+web: gunicorn vacina_v12.wsgi --preload --log-file -
