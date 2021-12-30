@@ -1,2 +1,2 @@
 release: python3 manage.py migrate
-web: gunicorn system.wsgi --preload --log-file -
+web: gunicorn django_heroku.wsgi --log-file -
