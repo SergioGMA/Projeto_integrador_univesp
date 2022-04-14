@@ -1,11 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from vacina.api import VacinaViewSet
+from vacina.api import VacinaViewSet, BannerViewSet, ProfileViewSet
 from vacina.views import TemplateView, CadastroView, VacinaView
 
 router = routers.DefaultRouter()
-router.register(r'vaccines', VacinaViewSet, basename='Vaccines')
+router.register(r'vacinas', VacinaViewSet, basename='Vacinas')
+router.register(r'profile', ProfileViewSet, basename='Profile')
+router.register(r'banner', BannerViewSet, basename='Banner')
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="index.html")),

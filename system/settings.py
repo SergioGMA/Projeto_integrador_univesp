@@ -16,7 +16,7 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DISABLE_COLLECTSTATIC=1
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -24,11 +24,11 @@ DISABLE_COLLECTSTATIC=1
 SECRET_KEY = 'h5m#558!xwktz)4swc0(@y04%ij8o!38$khguysta43-p1x-5k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-#ALLOWED_HOSTS = ['*']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
-DEBUG = False
-ALLOWED_HOSTS = ["https://pi-engcomp-gma.herokuapp.com/", "127.0.0.1"]
+#DEBUG = True
+#ALLOWED_HOSTS = ["https://pi-engcomp-gma.herokuapp.com/", "127.0.0.1"]
 
 
 # CORS_ORIGIN_ALLOW_ALL = True
@@ -102,11 +102,12 @@ DATABASES = {
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     )
 }
